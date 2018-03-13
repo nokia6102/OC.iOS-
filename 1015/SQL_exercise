@@ -1,0 +1,27 @@
+--列出所有欄位
+select *,date('now','start of month','+1 month','-1 day') as lastdayofmonth,julianday(create_date) - julianday('1912-01-01') as sinceday from student;
+
+--挑選特定欄位
+--select no,name,address from student;
+
+--篩選特定資料
+--select * from student where no > 101 and gender = 0;
+
+--insert into student(no,name,gender,phone,address,email,class,create_date) values('103','康百世',1,'0988675168','新竹市光復路一段58號','xvx@xx.com','手機程式開發',date('now'));
+
+--取得當月份的最後一天
+--SELECT date('now','start of month','+1 month','-1 day');
+
+--更新特定筆數(where)的欄位資料
+--update student set phone = '0933333211',address = '新竹市光復路一段100號' where no = '103';
+
+--刪除特定的資料
+--delete from student where no = '102';
+
+--欄位排序
+--select * from score order by no,score_date desc;
+
+--組合不同資料表的資料
+--select aa.no,bb.name,bb.address,aa.english,aa.math,aa.score_date from score as aa,student as bb where aa.no = bb.no;
+
+select name,english from student_score where no >= '102';
